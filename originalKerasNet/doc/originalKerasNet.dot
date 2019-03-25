@@ -1,0 +1,290 @@
+digraph G{
+    subgraph cluster_0{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv1
+        label = "Layer_0"
+    }
+    input_1->conv1
+
+    subgraph cluster_1{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_1
+        label = "Layer_1"
+    }
+    conv1->conv_dw_1
+
+    subgraph cluster_2{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_1
+        label = "Layer_2"
+    }
+    conv_dw_1->conv_pw_1
+
+    subgraph cluster_3{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_2
+        label = "Layer_3"
+    }
+    conv_pw_1->conv_dw_2
+
+    subgraph cluster_4{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_2
+        label = "Layer_4"
+    }
+    conv_dw_2->conv_pw_2
+
+    subgraph cluster_5{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_3
+        label = "Layer_5"
+    }
+    conv_pw_2->conv_dw_3
+
+    subgraph cluster_6{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_3
+        label = "Layer_6"
+    }
+    conv_dw_3->conv_pw_3
+
+    subgraph cluster_7{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_4
+        label = "Layer_7"
+    }
+    conv_pw_3->conv_dw_4
+
+    subgraph cluster_8{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_4
+        label = "Layer_8"
+    }
+    conv_dw_4->conv_pw_4
+
+    subgraph cluster_9{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_5
+        label = "Layer_9"
+    }
+    conv_pw_4->conv_dw_5
+
+    subgraph cluster_10{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_5
+        label = "Layer_10"
+    }
+    conv_dw_5->conv_pw_5
+
+    subgraph cluster_11{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_6
+        label = "Layer_11"
+    }
+    conv_pw_5->conv_dw_6
+
+    subgraph cluster_12{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_6
+        label = "Layer_12"
+    }
+    conv_dw_6->conv_pw_6
+
+    subgraph cluster_13{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_7
+        label = "Layer_13"
+    }
+    conv_pw_6->conv_dw_7
+
+    subgraph cluster_14{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_7
+        label = "Layer_14"
+    }
+    conv_dw_7->conv_pw_7
+
+    subgraph cluster_15{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_8
+        label = "Layer_15"
+    }
+    conv_pw_7->conv_dw_8
+
+    subgraph cluster_16{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_8
+        label = "Layer_16"
+    }
+    conv_dw_8->conv_pw_8
+
+    subgraph cluster_17{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_9
+        label = "Layer_17"
+    }
+    conv_pw_8->conv_dw_9
+
+    subgraph cluster_18{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_9
+        label = "Layer_18"
+    }
+    conv_dw_9->conv_pw_9
+
+    subgraph cluster_19{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_10
+        label = "Layer_19"
+    }
+    conv_pw_9->conv_dw_10
+
+    subgraph cluster_20{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_10
+        label = "Layer_20"
+    }
+    conv_dw_10->conv_pw_10
+
+    subgraph cluster_21{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_11
+        label = "Layer_21"
+    }
+    conv_pw_10->conv_dw_11
+
+    subgraph cluster_22{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_11
+        label = "Layer_22"
+    }
+    conv_dw_11->conv_pw_11
+
+    subgraph cluster_23{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_12
+        label = "Layer_23"
+    }
+    conv_pw_11->conv_dw_12
+
+    subgraph cluster_24{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_12
+        label = "Layer_24"
+    }
+    conv_dw_12->conv_pw_12
+
+    subgraph cluster_25{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_dw_13
+        label = "Layer_25"
+    }
+    conv_pw_12->conv_dw_13
+
+    subgraph cluster_26{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        conv_pw_13->max_pooling2d_1
+        label = "Layer_26"
+    }
+    conv_dw_13->conv_pw_13
+
+    subgraph cluster_27{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        flatten_1
+        label = "Layer_27"
+    }
+    max_pooling2d_1->flatten_1
+
+    subgraph cluster_28{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        dense_1
+        label = "Layer_28"
+    }
+    flatten_1->dense_1
+
+    subgraph cluster_29{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        dense_2
+        label = "Layer_29"
+    }
+    dense_1->dense_2
+
+    subgraph cluster_30{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        dense_3
+        label = "Layer_30"
+    }
+    dense_2->dense_3
+
+    subgraph cluster_31{
+        style = filled;
+        color = lightgrey;
+        node[style = filled,color = white];
+        dense_3_softmax
+        label = "Layer_31"
+    }
+    dense_3->dense_3_softmax
+
+}

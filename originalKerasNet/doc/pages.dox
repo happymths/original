@@ -1,0 +1,93 @@
+/*!*********************************************************************************
+\mainpage originalKerasNet Documentation: Conversion results
+\section quick What to do next to run the app
+In the following section, one can find the conversion results of the network.In order to compile the corresponding application, one needs to :
+- Include the 2 generated files to the make / project
+- In the main file of the application, the network initialization is done with :
+  + network.Initialize();
+  + network.LoadWeights(FILENAME_WEIGHTS);
+  + network.Commit();
+  + where network is the instance of the current network class
+
+
+- To run the network :
+ + network.RunNetwork();
+
+
+- To get the results :
+
+  + network.get_final_output(tensor);
+  + where tensor is a vector of floats, allocated in the network function
+\section mapping FPGA Mapping summary table
+
+| ID | Layers | Type | Dim In | Dim Out | Param | Mem | No. MUL | No. ADD |
+| :- | :- | :- | :- | :- | :- | -: | -: | -: |
+| 0 | FPGA-Layer | Convolution | (224, 224, 3) | (112, 112, 32) | - | - | - | - |
+| 0-0 | conv1 | Convolution | (224, 224, 3) | (112, 112, 32) | (3, 3) | 4672 | 10838016 | 10838016 |
+| 1 | FPGA-Layer | Convolution | (112, 112, 32) | (112, 112, 32) | - | - | - | - |
+| 1-0 | conv_dw_1 | Convolution | (112, 112, 32) | (112, 112, 32) | (3, 3) | 4672 | 3612672 | 3612672 |
+| 2 | FPGA-Layer | Convolution | (112, 112, 32) | (112, 112, 64) | - | - | - | - |
+| 2-0 | conv_pw_1 | Convolution | (112, 112, 32) | (112, 112, 64) | (1, 1) | 9344 | 25690112 | 25690112 |
+| 3 | FPGA-Layer | Convolution | (112, 112, 64) | (56, 56, 64) | - | - | - | - |
+| 3-0 | conv_dw_2 | Convolution | (112, 112, 64) | (56, 56, 64) | (3, 3) | 9344 | 1806336 | 1806336 |
+| 4 | FPGA-Layer | Convolution | (56, 56, 64) | (56, 56, 128) | - | - | - | - |
+| 4-0 | conv_pw_2 | Convolution | (56, 56, 64) | (56, 56, 128) | (1, 1) | 18688 | 25690112 | 25690112 |
+| 5 | FPGA-Layer | Convolution | (56, 56, 128) | (56, 56, 128) | - | - | - | - |
+| 5-0 | conv_dw_3 | Convolution | (56, 56, 128) | (56, 56, 128) | (3, 3) | 18688 | 3612672 | 3612672 |
+| 6 | FPGA-Layer | Convolution | (56, 56, 128) | (56, 56, 128) | - | - | - | - |
+| 6-0 | conv_pw_3 | Convolution | (56, 56, 128) | (56, 56, 128) | (1, 1) | 37120 | 51380224 | 51380224 |
+| 7 | FPGA-Layer | Convolution | (56, 56, 128) | (28, 28, 128) | - | - | - | - |
+| 7-0 | conv_dw_4 | Convolution | (56, 56, 128) | (28, 28, 128) | (3, 3) | 18688 | 903168 | 903168 |
+| 8 | FPGA-Layer | Convolution | (28, 28, 128) | (28, 28, 256) | - | - | - | - |
+| 8-0 | conv_pw_4 | Convolution | (28, 28, 128) | (28, 28, 256) | (1, 1) | 74240 | 25690112 | 25690112 |
+| 9 | FPGA-Layer | Convolution | (28, 28, 256) | (28, 28, 256) | - | - | - | - |
+| 9-0 | conv_dw_5 | Convolution | (28, 28, 256) | (28, 28, 256) | (3, 3) | 37376 | 1806336 | 1806336 |
+| 10 | FPGA-Layer | Convolution | (28, 28, 256) | (28, 28, 256) | - | - | - | - |
+| 10-0 | conv_pw_5 | Convolution | (28, 28, 256) | (28, 28, 256) | (1, 1) | 147968 | 51380224 | 51380224 |
+| 11 | FPGA-Layer | Convolution | (28, 28, 256) | (14, 14, 256) | - | - | - | - |
+| 11-0 | conv_dw_6 | Convolution | (28, 28, 256) | (14, 14, 256) | (3, 3) | 37376 | 451584 | 451584 |
+| 12 | FPGA-Layer | Convolution | (14, 14, 256) | (14, 14, 512) | - | - | - | - |
+| 12-0 | conv_pw_6 | Convolution | (14, 14, 256) | (14, 14, 512) | (1, 1) | 295936 | 25690112 | 25690112 |
+| 13 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 13-0 | conv_dw_7 | Convolution | (14, 14, 512) | (14, 14, 512) | (3, 3) | 74752 | 903168 | 903168 |
+| 14 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 14-0 | conv_pw_7 | Convolution | (14, 14, 512) | (14, 14, 512) | (1, 1) | 590848 | 51380224 | 51380224 |
+| 15 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 15-0 | conv_dw_8 | Convolution | (14, 14, 512) | (14, 14, 512) | (3, 3) | 74752 | 903168 | 903168 |
+| 16 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 16-0 | conv_pw_8 | Convolution | (14, 14, 512) | (14, 14, 512) | (1, 1) | 590848 | 51380224 | 51380224 |
+| 17 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 17-0 | conv_dw_9 | Convolution | (14, 14, 512) | (14, 14, 512) | (3, 3) | 74752 | 903168 | 903168 |
+| 18 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 18-0 | conv_pw_9 | Convolution | (14, 14, 512) | (14, 14, 512) | (1, 1) | 590848 | 51380224 | 51380224 |
+| 19 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 19-0 | conv_dw_10 | Convolution | (14, 14, 512) | (14, 14, 512) | (3, 3) | 74752 | 903168 | 903168 |
+| 20 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 20-0 | conv_pw_10 | Convolution | (14, 14, 512) | (14, 14, 512) | (1, 1) | 590848 | 51380224 | 51380224 |
+| 21 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 21-0 | conv_dw_11 | Convolution | (14, 14, 512) | (14, 14, 512) | (3, 3) | 74752 | 903168 | 903168 |
+| 22 | FPGA-Layer | Convolution | (14, 14, 512) | (14, 14, 512) | - | - | - | - |
+| 22-0 | conv_pw_11 | Convolution | (14, 14, 512) | (14, 14, 512) | (1, 1) | 590848 | 51380224 | 51380224 |
+| 23 | FPGA-Layer | Convolution | (14, 14, 512) | (7, 7, 512) | - | - | - | - |
+| 23-0 | conv_dw_12 | Convolution | (14, 14, 512) | (7, 7, 512) | (3, 3) | 74752 | 225792 | 225792 |
+| 24 | FPGA-Layer | Convolution | (7, 7, 512) | (7, 7, 1024) | - | - | - | - |
+| 24-0 | conv_pw_12 | Convolution | (7, 7, 512) | (7, 7, 1024) | (1, 1) | 1181696 | 25690112 | 25690112 |
+| 25 | FPGA-Layer | Convolution | (7, 7, 1024) | (7, 7, 1024) | - | - | - | - |
+| 25-0 | conv_dw_13 | Convolution | (7, 7, 1024) | (7, 7, 1024) | (3, 3) | 149504 | 451584 | 451584 |
+| 26 | FPGA-Layer | Convolution | (7, 7, 1024) | (3, 3, 1024) | - | - | - | - |
+| 26-0 | conv_pw_13 | Convolution | (7, 7, 1024) | (7, 7, 1024) | (1, 1) | 2361344 | 51380224 | 51380224 |
+| 26-0 | max_pooling2d_1 | Pooling | (7, 7, 1024) | (3, 3, 1024) | (2, 2) | - | 0 | 27648 |
+| 27 | FPGA-Layer | Flatten | (3, 3, 1024) | (9216,) | - | - | - | - |
+| 28 | FPGA-Layer | Convolution | (1, 1, 9216) | (1, 1, 512) | - | - | - | - |
+| 28-0 | dense_1 | InnerProduct | (1, 1, 9216) | (1, 1, 512) | (1, 1) | 10617856 | 4718592 | 4718592 |
+| 29 | FPGA-Layer | Convolution | (1, 1, 512) | (1, 1, 512) | - | - | - | - |
+| 29-0 | dense_2 | InnerProduct | (1, 1, 512) | (1, 1, 512) | (1, 1) | 590848 | 262144 | 262144 |
+| 30 | FPGA-Layer | Convolution | (1, 1, 512) | (1, 1, 2) | - | - | - | - |
+| 30-0 | dense_3 | InnerProduct | (1, 1, 512) | (1, 1, 2) | (1, 1) | 2320 | 1024 | 1024 |
+| 31 | FPGA-Layer | SoftMax | (1, 1, 2) | (1, 1, 2) | - | - | - | - |
+| SUM | - | - | - | - | - | - | 572698112 | 572725760 |
+
+\section graph Graph
+\dotfile originalKerasNet.dot
+
+***********************************************************************************/
